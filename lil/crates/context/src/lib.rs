@@ -21,10 +21,10 @@ pub async fn get_context(log_path: &Path) -> Result<String> {
     let mut buffer = Vec::new();
     file.read_to_end(&mut buffer).await?;
 
-    let content_with_ansi = String::from_utf8_lossy(&buffer).to_string();
-    let stripped_content = strip_ansi_escapes::strip(&content_with_ansi)?;
-
-    Ok(String::from_utf8_lossy(&stripped_content).to_string())
+    let content_with_ansi = String::from_utf8_lossy(&buffer);
+    let stripped_bytes = strip_ansi_escapes::strip(content_with_ansi.as_bytes())?;
+    let result_string = String::from_utf8_lossy(&stripped_bytes).to_string();
+    Ok(result_string)
 }
 
 #[cfg(test)]
