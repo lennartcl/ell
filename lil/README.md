@@ -4,6 +4,26 @@
 
 This project is a port of the original [ell by simonmysun](https://github.com/simonmysun/ell).
 
+## Getting Started
+
+### Prerequisites
+
+- Rust and Cargo (latest stable version recommended)
+- The `script` command (usually available via `util-linux` on Linux or comes with BSD/macOS)
+
+### Building
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/lennartcl/ell.git
+   cd ell/lil
+   ```
+2. Build the project:
+   ```bash
+   cargo build --release
+   ```
+3. The binary will be available at `target/release/lil`.
+
 ## Installation
 
 (Instructions to be added once the project is ready for distribution.)
