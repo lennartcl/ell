@@ -1,0 +1,16 @@
+[package]
+name = "lil"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { workspace = true }
+tokio = { workspace = true }
+anyhow = { workspace = true }
+
+# Local crates
+context = { path = "../context" }
+redact = { path = "../redact" }
+llm = { path = "../llm" }
+config = { path = "../config" }
+record = { path = "../record" }

@@ -1,0 +1,32 @@
+.TH LIL 1 "August 2025" "lil" "User Commands"
+.SH NAME
+lil \- a Rust-based shell-to-LLM helper
+.SH SYNOPSIS
+.B lil
+[\fICOMMAND\fR]
+.SH DESCRIPTION
+.B lil
+is a rewrite of the bash-based ell tool in Rust. It provides a set of utilities to interact with Large Language Models (LLMs) from your shell.
+.SH COMMANDS
+.TP
+.B pipe
+Pipe any text to
+.B lil pipe
+to send it to an LLM as a prompt.
+.TP
+.B record
+Start a new recorded shell session. The session will be saved to a log file.
+.TP
+.B interactive
+Start an interactive session with the LLM. Uses the session log file as context.
+.TP
+.B doctor
+Check for common environment issues and dependencies.
+.SH CONFIGURATION
+.B lil
+can be configured by creating a
+.I lil.toml
+file at
+.I ~/.config/lil/lil.toml
+.SH SEE ALSO
+The original project: https://github.com/simonmysun/ell

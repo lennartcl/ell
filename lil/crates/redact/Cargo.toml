@@ -1,0 +1,8 @@
+[package]
+name = "redact"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+regex = { workspace = true }
+lazy_static = { workspace = true }
