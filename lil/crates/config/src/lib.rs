@@ -5,14 +5,23 @@ use std::path::PathBuf;
 
 const DEFAULT_PROMPT: &str = "You are a helpful shell assistant. Here is the recent history of the shell session:\n---\n{{context}}\n---\nGiven the history, what is the user asking for in their latest prompt: '{{user_input}}'?";
 
+use std::fmt;
+
 #[derive(Deserialize, Debug)]
 struct RawConfig {
     prompt: String,
 }
 
-#[derive(Debug)]
 pub struct Config {
     pub prompt: Template,
+}
+
+impl fmt::Debug for Config {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.debug_struct("Config")
+         .field("prompt", &"<Liquid Template>")
+         .finish()
+    }
 }
 
 impl Config {
