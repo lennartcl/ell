@@ -50,7 +50,22 @@ pub fn spawn_shell(log_path: &Path, interactive_mode: bool) -> Result<()> {
 
 #[cfg(test)]
 mod tests {
-    // We can't easily test the full script spawning logic in a unit test,
-    // especially because it's interactive. We will rely on integration
-    // tests for this.
+    use super::*;
+    use std::fs;
+
+    #[test]
+    fn test_spawn_shell_simulation() {
+        // This test will always run in a non-TTY environment (the test runner)
+        let temp_dir = std::env::temp_dir();
+        let log_path = temp_dir.join("test_simulation.log");
+
+        spawn_shell(&log_path, false).unwrap();
+
+        assert!(log_path.exists());
+
+        let content = fs::read_to_string(&log_path).unwrap();
+        assert!(content.contains("ls -la"));
+
+        fs::remove_file(&log_path).unwrap();
+    }
 }
